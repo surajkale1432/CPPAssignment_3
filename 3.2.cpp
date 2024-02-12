@@ -1,10 +1,9 @@
-// 2. Write a operator overloading code to overload all the arithmetic operators to
-// add 2 distances, 1 distance and int value and one non member function to add
-// int and distance.
-
-#include <stdio.h>
-#include <iostream>
+// 3. Write a operator overloading code to overload logical operator for complex and 
+// distance.
+#include<stdio.h>
+#include<iostream>
 using namespace std;
+
 
 struct Distance
 {
@@ -44,5 +43,4 @@ struct Distance
     {
         
     }
-
 };
