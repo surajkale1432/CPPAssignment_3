@@ -5,8 +5,7 @@
 #include <stdio.h>
 #include <iostream>
 using namespace std;
-
-struct Distance
+struct Distance 
 {
     int inch;
     int feet;
@@ -42,7 +41,7 @@ struct Distance
 
     void display()
     {
-        
+         cout<<"\nDistance\nFeet&Inch = "<<this->inch<<"'"<<this->feet;
     }
 
 };
