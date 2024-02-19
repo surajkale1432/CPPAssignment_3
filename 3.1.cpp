@@ -38,7 +38,7 @@ struct Complex
 
     void display()
     {
-        cout << this->real << this->img << "i";
+        cout << this->real <<"+"<< this->img << "i";
     }
     Complex operator&&(Complex c2)
     {
@@ -55,10 +55,15 @@ struct Complex
         return temp;
     }
 
-    // int operator(Complex c1)
-    // {
-
-    // }
+    int operator!()
+    {
+        if(this->real==0)
+        {
+            return 1;
+        }
+        else
+        return 0;
+    }
 };
 int main()
 {
@@ -68,7 +73,7 @@ int main()
     cin >> real;
     cout << "\nimg = ";
     cin >> img;
-
+    // Complex c1(real,img);
     c1.setReal(real);
     c1.setImg(img);
 
@@ -78,7 +83,7 @@ int main()
     cout << "\nC2 Values\n";
     c2.display();
     cout << "\nC1 && C2\n";
-    if (c3.getReal() && c3.getReal())
+    if (c3.getReal())
     {
         cout << "\nC1.real & C2. Real both are nonZero";
     }
@@ -87,7 +92,7 @@ int main()
         cout << "\nC1.real or C2.real anyone of them is Zero or Both are zero";
     }
     cout << "\nC1 || C2\n";
-    if (c3.getReal() && c3.getReal())
+    if (c3.getReal())
     {
         cout << "\nC1.real OR C2. Anyone of them is NonZero";
     }
@@ -95,6 +100,11 @@ int main()
     {
         cout << "\nC1.real and C2.real Both are zero";
     }
-
-    // ans=
+    if(!c1)
+    {
+        cout<<"\n\n!c1.real has zero value";
+    }
+    else{
+        cout<<"\n\nc1.real has non zero value";
+    }
 }
