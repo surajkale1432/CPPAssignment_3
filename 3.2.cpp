@@ -1,9 +1,8 @@
-// 3. Write a operator overloading code to overload logical operator for complex and 
+// 3. Write a operator overloading code to overload logical operator for complex and
 // distance.
-#include<stdio.h>
-#include<iostream>
+#include <stdio.h>
+#include <iostream>
 using namespace std;
-
 
 struct Distance
 {
@@ -19,7 +18,7 @@ struct Distance
         this->feet = feet;
     }
 
-    //getter
+    // getter
     int getInch()
     {
         return this->inch;
@@ -28,41 +27,68 @@ struct Distance
     {
         return this->feet;
     }
-    //default
-    Distance(){
-        this->inch=0;
-        this->feet=0;
-    }
-    Distance(int inch,int feet)
+    // default
+    Distance()
     {
-        this->inch=inch;
-        this->feet=feet;
+        this->inch = 0;
+        this->feet = 0;
+    }
+    Distance(int inch, int feet)
+    {
+        this->inch = inch;
+        this->feet = feet;
     }
     void display()
     {
-        
+        cout<<"\nFeet = "<<this->feet;
+        cout<<"\nInch = "<<this->inch;
+    }
+    Distance operator&&(Distance d2)
+    {
+        Distance temp;
+        temp.feet = this->feet && d2.feet;
+        temp.inch = this->inch && d2.inch;
+        return temp;
+    }
+    Distance operator||(Distance d2)
+    {
+        Distance temp;
+        temp.feet = this->feet && d2.feet;
+        temp.inch = this->inch && d2.inch;
+        return temp;
+    }
+    int operator!()
+    {
+        if (this->feet == 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 };
 int main()
 {
-    Distance d1,d2(10,20),d3,d4,d5;
-    int feet,inch, ans;
+    Distance d1, d2(10, 20), d3, d4, d5;
+    int feet, inch, ans;
     cout << "\nEnter D1 Values\nfeet = ";
-    cin >>feet;
+    cin >> feet;
     cout << "\ninch = ";
-    cin >>inch;
+    cin >> inch;
 
     d1.setFeet(feet);
     d1.setInch(inch);
 
     d3 = d1 && d2;
-    cout << "\nD1 Values\n";
+    cout << "\n\nD1 Values";
     d1.display();
-    cout << "\nD2 Values\n";
-    d1.display();
-    d4
+    cout << "\n\nD2 Values";
+    d2.display();
+
     cout << "\nD1 && D2\n";
-    if (d3.getFeet() && d2.getFeet())
+    if (d3.getFeet())
     {
         cout << "\nD1.Feet & D2.Feet both are nonZero";
     }
@@ -71,19 +97,21 @@ int main()
         cout << "\nD1.Feet or D2.Feet anyone of them is Zero or Both are zero";
     }
     cout << "\nD1 || D2\n";
-    if (d3.getReal() && cd.getReal())
+    d4 = d1 || d2;
+    if (d4.getFeet())
     {
-        cout << "\nC1.real OR C2. Anyone of them is NonZero";
+        cout << "\nD1.feet or D2.feet Anyone of them is NonZero or both are non zero";
     }
     else
     {
-        cout << "\nC1.real and C2.real Both are zero";
+        cout << "\nD1.feet and D2.feet Both are zero";
     }
-    if(!c1)
+    if (!d1)
     {
-        cout<<"\n\n!c1.real has zero value";
+        cout << "\n\n!D1.Feet has zero value";
     }
-    else{
-        cout<<"\n\nc1.real has non zero value";
+    else
+    {
+        cout << "\n\nD1.Feet has non zero value";
     }
 }
